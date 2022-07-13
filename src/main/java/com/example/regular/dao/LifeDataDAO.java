@@ -19,19 +19,6 @@ public class LifeDataDAO {
 
     public void updateLifeData(List<LifeData> lifeDataList) {
         SqlParameterSource[] batch = SqlParameterSourceUtils.createBatch(lifeDataList.toArray());
-//        SqlParameterSource[] batch = new SqlParameterSource[lifeDataList.size()];
-//        for (int i = 0; i < lifeDataList.size(); i++) {
-//            LifeData lifeData = lifeDataList.get(i);
-//            batch[i] = new MapSqlParameterSource()
-//                    .addValue("dateTime", lifeData.getDateTime())
-//                    .addValue("temperature", lifeData.getTemperature())
-//                    .addValue("diastolicPressure", lifeData.getDiastolicPressure())
-//                    .addValue("systolicPressure", lifeData.getSystolicPressure())
-//                    .addValue("saturation", lifeData.getSaturation())
-//                    .addValue("pulse", lifeData.getPulse())
-//                    .addValue("patientId", lifeData.getPatientId());
-//        }
-
         template.batchUpdate("INSERT INTO life_data (date_time, temperature, " +
                         "diastolic_pressure, systolic_pressure, " +
                         "saturation, pulse, patient_id) " +
