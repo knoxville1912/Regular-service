@@ -25,6 +25,8 @@ public class LifeDataDAO {
                         "VALUES (:dateTime, :temperature, :diastolicPressure, " +
                         ":systolicPressure, :saturation, :pulse, :patientId)",
                 batch);
+
+        System.out.println();
     }
 
     public List<LifeData> getLifeDataDailyOfPatient(Long patientId) {
