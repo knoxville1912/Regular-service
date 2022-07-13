@@ -26,6 +26,8 @@ public class LifeDataDAO {
                         ":systolicPressure, :saturation, :pulse, :patientId)",
                 batch);
 
+
+
         System.out.println();
     }
 
