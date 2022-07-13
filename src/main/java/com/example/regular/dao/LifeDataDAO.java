@@ -42,6 +42,7 @@ public class LifeDataDAO {
     }
 
     public List<Long> getAllPatientIdWithLifeData() {
+        System.out.println();
         return template.queryForList(
                 "SELECT patient_id FROM life_data\n" +
                         "GROUP BY patient_id;",
