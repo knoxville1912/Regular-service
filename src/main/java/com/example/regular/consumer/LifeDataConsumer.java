@@ -1,7 +1,6 @@
 package com.example.regular.consumer;
 
 import com.example.regular.converter.LifeDataMessageConverter;
-import com.example.regular.dto.LifeDataDTO;
 import com.example.regular.dto.LifeDataMessageDTO;
 import com.example.regular.model.LifeData;
 import com.example.regular.service.LifeDataService;
@@ -11,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,7 +27,8 @@ public class LifeDataConsumer {
         ObjectMapper mapper = new ObjectMapper();
         List<LifeDataMessageDTO> lifeDataMessageDTOS = mapper.convertValue(
                 lifeDataMessageDTOList,
-                new TypeReference<List<LifeDataMessageDTO>>(){}
+                new TypeReference<List<LifeDataMessageDTO>>() {
+                }
         );
         lifeDataService.updateLifeData(lifeDataMessageDTOS.stream().map(lifeDataMessageConverter::toModel).collect(Collectors.toList()));
 
