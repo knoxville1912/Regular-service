@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/medicine?currentSchema=regular
+    driver-class-name: org.postgresql.Driver
+  activemq:
+    broker-url: tcp://localhost:60000
+    user: admin
+    password: admin
+server:
+  port: 8081
